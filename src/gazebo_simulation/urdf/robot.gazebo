@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Include ROS 2 control configuration -->
+    <!-- <xacro:include filename="$(find arm_moveit2)/config/simple_robot.ros2_control.xacro" /> -->
+
+    <!-- Gazebo ROS 2 Control plugin -->
+    <!-- <gazebo>
+        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+            <robotNamespace>/simple_robot</robotNamespace>
+            <parameters>$(find arm_moveit2)/config/ros2_controllers.yaml</parameters>
+        </plugin>
+    </gazebo> -->
+
+    <!-- Example: specify Gazebo parameters for base_link -->
+    <gazebo reference="base_link">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+</robot>

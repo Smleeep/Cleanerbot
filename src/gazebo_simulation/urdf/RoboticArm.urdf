@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<robot name="RoboticArm">
+
+  <!-- Base link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Baselink.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Baselink.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.25"/>
+      <inertia ixx="0.001" iyy="0.001" izz="0.001" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint Base to Link1 -->
+  <joint name="joint_base" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0.0485" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 1 -->
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.18"/>
+      <inertia ixx="0.00034" iyy="0.00034" izz="0.00017" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint Link1 to Link2 -->
+  <joint name="joint_1" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.08086" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 2 -->
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 1.57"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link2.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.18"/>
+      <inertia ixx="0.00034" iyy="0.00034" izz="0.00017" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint Link2 to Link3 -->
+  <joint name="joint_2" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0 0 0.21676113" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 3 -->
+  <link name="link_3">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link3.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.13"/>
+      <inertia ixx="0.00048" iyy="0.00048" izz="0.00024" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint Link3 to Link4 -->
+  <joint name="joint_3" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0 0 0.280488" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 4 -->
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 1.57"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/Link4.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.016"/>
+      <inertia ixx="0.00008" iyy="0.00008" izz="0.00004" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint Link4 to Link5 -->
+  <joint name="joint_4" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Link 5 -->
+  <link name="link_5">
+    <visual>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/BaseLink5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0 0 0.05274" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="file://$(find gazebo_simulation)/meshes/RobotArm/BaseLink5.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.016"/>
+      <inertia ixx="0.00008" iyy="0.00008" izz="0.00004" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+  </link>
+
+</robot>
