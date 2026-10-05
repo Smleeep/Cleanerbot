@@ -6,6 +6,8 @@ The system uses a custom 5-degree-of-freedom robotic arm together with ROS 2, Mo
 
 The software allows the robot to be modelled and visualised in ROS, planned using MoveIt, and controlled physically by transmitting joint commands from ROS to the ESP32.
 
+Please refer to the video for the development of the simulation
+https://drive.google.com/file/d/11hbCymXCikakGu0YpHP9UGCK55OFIKny/view?usp=drive_link 
 ---
 
 # Project Overview
